@@ -1,4 +1,6 @@
-class CurrentAccount {
+// Faz com uqe as classes tenham um único motivo para receber alterações.
+
+class CheckingAccount {
   validateExistingAccount() => print('Check Existing...');
 
   // Não faz sentido estar aqui pois tem um função diferente da classe existente.
@@ -6,14 +8,19 @@ class CurrentAccount {
 }
 
 // Modo Correto de se Abordar.
-class CurrentAccountRepository {
+class CheckingAccountRepository {
   void save() => print('Save in Database...');
 }
 
-class CurrentAccountUser {
-  CurrentAccountRepository _repository = new CurrentAccountRepository();
+class CheckingAccountUser {
+  CheckingAccountRepository _repository = new CheckingAccountRepository();
 
   validateExistingAccount() => print('Check Existing...');
 
   saveModifications() => _repository.save();
+}
+
+void main(List<String> args) {
+  CheckingAccountUser cau = new CheckingAccountUser();
+  cau.saveModifications();
 }

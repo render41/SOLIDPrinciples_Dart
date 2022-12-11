@@ -30,3 +30,11 @@ class PaymentNew extends Payment2 {
   @override
   void pay() => print('New model Payment.');
 }
+
+void main(List<String> args) {
+  Payment2 payment = PaymentTax();
+  payment.pay();
+
+  payment = PaymentNew();
+  payment.pay();
+}
